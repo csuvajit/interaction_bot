@@ -1,0 +1,10 @@
+node_modules/
+dist/
+yarn.lock
+.env
+auth.ts
+auth.js
+.vs/
+.vscode/
+.idea/
+test/

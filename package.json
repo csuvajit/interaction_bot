@@ -1,0 +1,128 @@
+{
+  "name": "clashperk",
+  "version": "1.5.0",
+  "author": "SUVAJIT (suvajit.me@gmail.com)",
+  "license": "MIT",
+  "description": "Clash of Clans Discord Bot",
+  "type": "module",
+  "exports": {
+    "main": "./dist/src/index.js"
+  },
+  "private": true,
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start": "npm run build && node --enable-source-maps dist/src/index.js",
+    "test": "eslint --ext .ts --ignore-path .gitignore .",
+    "lint": "eslint --fix --ext .ts --ignore-path .gitignore .",
+    "dev": "node -r dotenv/config --enable-source-maps --es-module-specifier-resolution=node dist/src/index.js",
+    "deploy": "node dist/scripts/index.js",
+    "patrons": "node dist/scripts/Patrons.js"
+  },
+  "dependencies": {
+    "@clashperk/quickchart": "github:clashperk/quickchart",
+    "@grpc/grpc-js": "^1.3.7",
+    "@grpc/proto-loader": "^0.5.6",
+    "@sentry/integrations": "^6.13.3",
+    "@sentry/node": "^6.13.3",
+    "chalk": "^4.1.2",
+    "clashofclans.js": "^1.5.3",
+    "common-tags": "^1.8.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^10.0.0",
+    "exceljs": "^4.2.1",
+    "i18next": "^21.6.13",
+    "lexure": "^0.17.0",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
+    "mongodb": "^4.2.0",
+    "ms": "^2.1.3",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "readdirp": "^3.6.0",
+    "shelljs": "^0.8.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/common-tags": "^1.8.1",
+    "@types/moment-duration-format": "^2.2.3",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^14.17.9",
+    "@types/node-fetch": "^2.5.12",
+    "@types/shelljs": "^0.8.9",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "discord-api-types": "^0.29.0",
+    "eslint": "^8.3.0",
+    "eslint-config-marine": "^9.0.6",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "tsyringe": "^4.6.0",
+    "typescript": "^4.6.2"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "eslintConfig": {
+    "extends": [
+      "marine/prettier/node",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "ignorePatterns": [],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "no-process-env": 0,
+      "no-inline-comments": 0,
+      "no-warning-comments": 0,
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "@typescript-eslint/naming-convention": 0,
+      "@typescript-eslint/no-floating-promises": 0,
+      "@typescript-eslint/no-misused-promises": 0,
+      "@typescript-eslint/no-unsafe-argument": 0,
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "tabWidth": 4,
+    "printWidth": 140,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "trailingComma": "none",
+    "overrides": [
+      {
+        "files": [
+          "*.md"
+        ],
+        "options": {
+          "useTabs": false,
+          "tabWidth": 4
+        }
+      },
+      {
+        "files": [
+          "*.yml"
+        ],
+        "options": {
+          "useTabs": false,
+          "tabWidth": 2
+        }
+      }
+    ]
+  }
+}
